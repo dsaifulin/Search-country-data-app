@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CountrySearchApp</string>
+    <string name="searchButton">Search</string>
+    <string name="capitalText">Capital:</string>
+    <string name="populationText">Population:</string>
+    <string name="areaText">Area:</string>
+    <string name="languagesText">Languages:</string>
+
 </resources>
