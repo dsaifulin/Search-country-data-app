@@ -2,12 +2,189 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
 
+    android:layout_height="match_parent"
     android:background="@color/backgroundColor"
     android:backgroundTintMode="add"
-    tools:context=".MainActivity">
+    android:visibility="visible"
+    tools:context=".MainActivity"
+    tools:visibility="visible">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/CountryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="countryName"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageFlag"
+            app:layout_constraintTop_toTopOf="@+id/imageFlag" />
+
+        <TextView
+            android:id="@+id/areaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="areaText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/populationText"
+            app:layout_constraintTop_toTopOf="@+id/Area" />
+
+        <TextView
+            android:id="@+id/population"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/populationText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/imageFlag"
+            app:layout_constraintTop_toBottomOf="@+id/imageFlag" />
+
+        <TextView
+            android:id="@+id/languagesText"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="languagesText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/areaText"
+            app:layout_constraintTop_toTopOf="@+id/Languages" />
+
+        <ImageView
+            android:id="@+id/imageFlag"
+            android:layout_width="168dp"
+            android:layout_height="109dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="120dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/flag" />
+
+        <TextView
+            android:id="@+id/populationText"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="populationText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/population"
+            app:layout_constraintTop_toTopOf="@+id/population" />
+
+        <TextView
+            android:id="@+id/Area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/areaText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/population"
+            app:layout_constraintTop_toBottomOf="@+id/population" />
+
+        <TextView
+            android:id="@+id/capitalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="capitalNameText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/CapitalText"
+            app:layout_constraintTop_toTopOf="@+id/CapitalText" />
+
+        <TextView
+            android:id="@+id/Languages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/languagesText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/Area"
+            app:layout_constraintTop_toBottomOf="@+id/Area" />
+
+        <TextView
+            android:id="@+id/CapitalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/capitalText"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/CountryName"
+            app:layout_constraintTop_toBottomOf="@+id/CountryName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/statusLayout"
+        android:layout_width="match_parent"
+        android:layout_height="634dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toTopOf="parent"><![CDATA[
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+
+        ]]>
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/startSearchText"
+            android:textColor="@color/textColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusImage" />
+
+        <ImageView
+            android:id="@+id/statusImage"
+            android:layout_width="74dp"
+            android:layout_height="68dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.371"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <EditText
@@ -19,8 +196,8 @@
         android:backgroundTint="@color/white"
         android:ems="10"
         android:fontFamily="sans-serif-medium"
+        android:hint="Country"
         android:inputType="textPersonName"
-        android:text="Country"
         android:textColor="@color/textColor"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,134 +214,5 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editTextCountry" />
-
-    <ImageButton
-        android:id="@+id/countryImage"
-        android:layout_width="166dp"
-        android:layout_height="116dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCountry"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/CountryName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="countryName"
-        android:textColor="@color/textColor"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/countryImage"
-        app:layout_constraintTop_toTopOf="@+id/countryImage" />
-
-    <TextView
-        android:id="@+id/CapitalText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/capitalText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/countryImage"
-        app:layout_constraintTop_toBottomOf="@+id/CountryName" />
-
-    <TextView
-        android:id="@+id/population"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/populationText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countryImage" />
-
-    <TextView
-        android:id="@+id/Area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/areaText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/population" />
-
-    <TextView
-        android:id="@+id/Languages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/languagesText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Area" />
-
-    <TextView
-        android:id="@+id/capitalName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="25dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="capitalNameText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/CapitalText"
-        app:layout_constraintTop_toTopOf="@+id/CapitalText" />
-
-    <TextView
-        android:id="@+id/populationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="populationText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/population"
-        app:layout_constraintTop_toTopOf="@+id/population" />
-
-    <TextView
-        android:id="@+id/areaText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="areaText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/populationText"
-        app:layout_constraintTop_toBottomOf="@+id/populationText" />
-
-    <TextView
-        android:id="@+id/languagesText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="languagesText"
-        android:textColor="@color/textColor"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/areaText"
-        app:layout_constraintTop_toBottomOf="@+id/populationText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

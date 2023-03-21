@@ -9,11 +9,9 @@ interface RestCountriesService {
     suspend fun getCountryByName(@Path("name") countryName: String): List<Country>
 }
 
-class RestCountries(){
     var retrofit = Retrofit.Builder()
         .baseUrl("https://restcountries.com/v2/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
     var restCountriesService = retrofit.create(RestCountriesService::class.java)
-}

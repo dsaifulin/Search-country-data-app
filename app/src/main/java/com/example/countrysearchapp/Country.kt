@@ -1,10 +1,19 @@
 package com.example.countrysearchapp
 
-data class Country(val countryName: String,
-              val capitalName: String,
+
+data class Country(val name: String,
+              val capital: String,
               val population: Long,
               val area: Long,
               val languages: List<Language>,
+               val flags: Image
                 )
-//data class CountryName(val name: String)
-data class Language(val language: String)
+
+
+data class Language(
+    val name: String
+)
+
+data class Image(
+    val png: String
+)

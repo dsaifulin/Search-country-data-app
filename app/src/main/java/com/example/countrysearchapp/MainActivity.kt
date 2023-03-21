@@ -1,47 +1,57 @@
 package com.example.countrysearchapp
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
+import android.util.Log
+import android.view.View
+import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
+import coil.load
+import com.example.countrysearchapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
-
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val restCountries = RestCountries()
-        val countryNameWidget: TextView = findViewById(R.id.CountryName)
-        val capitalNameWidget: TextView = findViewById(R.id.capitalName)
-        val populationWidget: TextView = findViewById(R.id.populationText)
-        val areaWidget: TextView = findViewById(R.id.areaText)
-        val languagesWidget: TextView = findViewById(R.id.languagesText)
-        val imageWidget: ImageButton = findViewById(R.id.countryImage)
-        val searchButtonWidget: Button = findViewById(R.id.searchCountryButton)
-        val editCountryText: EditText = findViewById(R.id.editTextCountry)
+            binding.searchCountryButton.setOnClickListener {
+                val searchCountryName = binding.editTextCountry.text.toString()
+                lifecycleScope.launch {
+                    try{
+                        val country = restCountriesService.getCountryByName(searchCountryName)[0]
+                        binding.CountryName.text = stringCutter(country.name, 20)
+                        binding.capitalName.text = country.capital
+                        binding.populationText.text = String.format("%,d", country.population).replace(",", ".")
+                        binding.areaText.text = String.format("%,d", country.area).replace(",", ".")
+                        binding.languagesText.text = country.languages.joinToString { it.name }
 
-        searchButtonWidget.setOnClickListener {
-            val searchCountryName = editCountryText.text.toString()
-            lifecycleScope.launch {
-                val country = restCountries.restCountriesService.getCountryByName(searchCountryName)[0]
-                countryNameWidget.text = country.countryName
-                capitalNameWidget.text = country.capitalName
-                populationWidget.text = country.population.toString()
-                areaWidget.text = country.area.toString()
-                languagesWidget.text = country.languages.toString()
-                //imageWidget
+                        binding.imageFlag.load(country.flags.png) {
+                            placeholder(R.drawable.flag)
+                        }
+                    }
+                    catch(e: Exception) {
+                        binding.statusText.text = "Error! Please, try again..."
+                        binding.statusImage.setImageResource(R.drawable.error_status)
+                        binding.resultLayout.visibility = View.INVISIBLE
+                        binding.statusLayout.visibility = View.VISIBLE
+                    }
+                }
+                binding.resultLayout.visibility = View.VISIBLE
+                binding.statusLayout.visibility = View.INVISIBLE
             }
-
         }
 
 
     }
 
-}
+
